@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type ="text/css" href="{% static 'books/style.css' %}">
+</head>
+<body>
+    <div id="header">
+        <h1 class="float_left">Welcome,{{current_user.name}}</h1>
+        <button class="float_right" ><a href="/users/logout">Logout</a></button>
+        <a class="float_right" href="/books/new">Add Book and Review</a>
+        
+    </div>
+</body>
+</html>

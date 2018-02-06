@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add</title>
+        {% load  static %}
+        <link href="{% static 'exam_app/css/main.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="title">Add a Trip</h1>
+        <form class="" action="create_trip" method="post">
+            {% csrf_token %}
+            Destination: <input type="text" name="destination" value="">
+            Description: <input type="text" name="desc" value="">
+            Travel Date From: <input type="date" name="start" value="2017-01-01">
+            Travel Date To: <input type="date" name="end" value="2017-01-01">
+            <input type="submit" name="" value="Add" class="create_button">
+        </form>
+
+    </body>
+</html>

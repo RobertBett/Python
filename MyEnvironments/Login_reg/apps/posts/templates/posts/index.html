@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="newPostForm">
+                <div>
+                    <h1>Wassup!, {{user.name}}</h1>
+                    <button><a href="/users/logout">Log out</a></button>
+                </div>
+            <form action="/posts/create" method="POST">
+                {%csrf_token%}
+                <div>
+                    <label>Write a new Post</label>
+                </div>
+                <div>
+                    <textarea name="contents"></textarea>
+                </div>
+                <input type="submit" value="Create Post">
+            </form>
+        </div>
+        <div class="posts">
+            {% for post in posts %}
+                <div>
+                    <p>{{ post.user.name }} - {{post.contents}} at {{post.created_at}}
+                    </p>
+                    <p>{{ post.likes.count }} likes</p>
+                    <form action="/likes/create/{{ post.id }}" method="POST">
+                        {%csrf_token%}
+                        <input type="submit" value="Like">
+                    </form>
+                </div>
+            {% endfor %}
+
+        </div>
+        </div>
+        {% if messages %}
+            <div>
+                {%for error in messages %}
+                <p class="error">{{error}}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

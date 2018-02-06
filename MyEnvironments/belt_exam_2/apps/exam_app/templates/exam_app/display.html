@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Travels</title>
+        {% load  static %}
+        <link href="{% static 'exam_app/css/main.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+        <h1>Hello, {{request.session.user.name}}!</h1>
+        <br>
+        <h1 class="title">You Trip Schedules</h1>
+        <div class="">
+            <table>
+                <tr>
+                    <th>Destination</th>
+                    <th>Travel Start Date</th>
+                    <th>Travel End Date</th>
+                    <th>Plan</th>
+                    <th>Cancel Trip</th>
+                </tr>
+
+            {% for trip in trips %}
+            <tr>
+                <td><a href="travels/destination/{{trip.id}}">{{trip.destination}}</a></td>
+                <td>{{trip.start}}</td>
+                <td>{{trip.end}}</td>
+                <td>{{trip.desc}}</td>
+                <td><a href="remove/{{trip.id}}">Cancel</a></td>
+            </tr>
+            {% endfor %}
+
+            </table>
+        </div>
+
+        <h1 class="title">Other User's Travel Plans</h1>
+
+
+
+        <div class="">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Destination</th>
+                    <th>Travel Start Date</th>
+                    <th>Travel End Date</th>
+                    <th>Do You Want To Join?</th>
+                </tr>
+            {% for travler in exclude %}
+            {% for trip in travler.trips.all %}
+            <tr>
+                <td>{{travler.name}}</td>
+                <td><a href="travels/destination/{{trip.id}}">{{trip.destination}}</a></td>
+                <td>{{trip.start}}</td>
+                <td>{{trip.end}}</td>
+                <td><a href="join/{{trip.id}}">Join</a></td>
+            </tr>
+
+            {% endfor %}
+            {% endfor %}
+            </table>
+
+        </div>
+        <a href="logout"><button class="logout_button">Logout</button></a>
+        <a href="travels/add"><button class="create_button">Add Travel Plan</button></a>
+
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>high</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='random_styles.css') }}">
+	<!-- <link rel="stylesheet" type="text/css" href="exp.css"> -->
+</head>
+<body>
+	<div id="wrapper">
+		<div class="box">
+			<h4>TOO HIGH!!</h4> 
+			<form action="/user" method="post">
+			<!-- <p> {{session['randnum']}} </p>  -->
+			<input class="space" type='number' name='usernum'> 
+			<button class="button2"> Guess AGAIN! </button>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+</html>

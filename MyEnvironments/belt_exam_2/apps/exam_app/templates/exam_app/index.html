@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Index Registration and Login Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load  static %}
+        <link href="{% static 'exam_app/css/main.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <a href="new">Where is my new form going</a>
+        <a href="login">Where is my login form going</a>
+        <a href="users">Users</a>
+        <a href="user/1">Show one user</a>
+        <fieldset>
+            <legend>New User</legend>
+        <form action="new" method="post">
+            {% csrf_token %}
+            Name: <input type="text" name="name">
+            Username: <input type="text" name="username">
+            Password: <input type="password" name="password" value="12345678">
+            Confirm Password: <input type="password" name="confirm_password" value="12345678">
+            <input class="create_button" type="submit" value="Register">
+        </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>Existing User</legend>
+        <form action="login" method="post">
+            {% csrf_token %}
+            <label>
+            Username: </label><input type="text" name="username" placeholder="Enter your username">
+            Password: <input type="password" name="password">
+            <input class="login_button" type="submit" value="Login">
+        </form>
+        </fieldset>
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,91 @@
+*{
+    font-style:italic;
+    font-weight:bold;
+}
+.error{
+    background-color:rgb(187, 0, 0);
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    padding:10px 5px;
+    border-radius:5px;
+    color:rgb(241, 241, 241);
+
+}
+h1{
+    font-size:35px
+}
+#errors{
+    display: inline-block;
+    float:right;
+    margin-top:100px;
+    margin-left:20px;
+    margin-right:50px;
+
+}
+label{
+    font-size:18px;
+}
+ul{
+    padding:0px;
+}
+#login_form{
+    display:inline-block;
+    margin-bottom:20%;
+    margin-left:50px; 
+    margin-right:50px; 
+
+}
+.container{
+    margin-left:20%;
+    margin-top:50px;
+    height:500px;
+    display:inline-block;
+    background-color:rgb(201, 201, 201);
+    border-radius:20px;
+    border-style:solid;
+    border-color:rgb(129, 129, 129);
+}
+/* input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #3CBC8D;
+    color: white;
+    display: inline-flex;
+} */
+#reg_form{
+    margin-left:50px;
+    display: inline-block;
+}
+input[type=text],[type=password] {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius:5px;
+    border-style:solid;
+    border-color:rgb(74, 105, 66);
+}
+
+input[type=submit] {
+    width: 60%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px 0 0 40px;
+    border: none;
+    border-radius:100px;
+    cursor: pointer;
+    border-style:solid;
+    border-color:#429c45;
+    font-size:20px;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'first_app/style.css' %}">
+    </head>
+    <body>
+        <div class="separator">
+            <form action="/sessions_words" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for ="name">Add a new word: </label><input type="text" name="name">
+            </div>
+            <div class="form-group">
+                <label for="color">Choose Color:</label>
+                <label><input type="radio" name="color" value="red">Red</label>
+                <label><input checked="checked" type="radio" name="color" value="green">Green</label>
+                <label><input type="radio" name="color" value="blue">Blue</label>
+            </div>
+            <div class="form-group">
+                    <label for="show_big">show in BIG fonts!</label>
+                    <input type="checkbox" name="show_big">
+            </div>
+                <input type ="submit" value= "add to session">
+            </form>
+        </div>
+        <div class="separator">
+                <a href="/clear"><button>Clear Session</button></a>
+                {% for thing in request.session.name%}
+                <p><span style = "color:{{thing.color}}; font-size:{{thing.show_big}}em">{{thing.name}}</span> added on {{thing.time}}</p>
+                {%endfor %}
+            </div>
+
+    </body>
+</html>

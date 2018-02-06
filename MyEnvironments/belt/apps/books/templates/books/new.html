@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type ="text/css" href="{% static 'books/style.css' %}">
+</head>
+<body>
+    <div id ="header">
+        <button class="float_right" ><a href="/users/logout">Logout</a></button>
+        <a class="float_right" href="/books">Home</a>
+    </div>
+    <div>
+        <h2>Add a New Book Title and a Review </h2>
+        <form action="/books/create" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for=""> Book Title</label>
+            <input type="text" name="title">
+        </div>
+        <div>
+            <label for="">Author</label>
+        </div>
+        <div class="new_author">
+            <label for=""> Choose form the list</label>
+            <select name="list_author">
+                <option disabled selected></option>
+                {% for author in authors %}
+                 <option value="{{ author.id }}">{{ author.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="new_author">
+            <label for="">Or add new author </label>
+            <input type="text" name ="new_author">
+        </div>
+        <div>
+            <label for=""> Review</label>
+            <textarea name="review" id="" cols="30" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="">Rating</label>
+            <input type="number" min="1" max="5" step="1" name="score">
+        </div>
+            <input type="submit" value="Add Book and Review">
+        </form>
+    </div>
+    <div id ="errors">
+            {% if messages %}
+            {%for error in messages %}
+            <ul>
+            <li class="error">{{error}}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+    </div>
+</body>
+</html>

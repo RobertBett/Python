@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type ="text/css" href="{% static 'books/style.css' %}">
+    <div id ="header">
+            <button class="float_right" ><a href="/users/logout">Logout</a></button>
+            <a class="float_right" href="/books">Home</a>
+    </div>
+</head>
+<body>
+    <div>
+        <h2>{{book.title}}</h2>
+        <h4>{{book.author.name}}</h4>
+    </div>
+    <div class="ratings">
+    <h3>Reviews</h3>
+    {% for review in reviews %}
+            <p>Rating:{{ review.score}}</p>
+            <p>{{ review.user.name}} says {{ review.review}}</p>
+            <p>posted on {{review.created_at}}</p>
+            <hr>
+    {% endfor %}
+    </div>
+    <div class="ratings">
+        <form action="/reviews/create/{{book.id}}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="">Add a review</label>
+            <textarea name="review" id="" cols="30" rows="5"></textarea>
+        </div>
+        <div>
+            <label for="">Score</label>
+            <input type="number" min="1" max="5" step="1" name="score">
+        </div>
+        <input type="submit" value="Create review">
+        </form>
+    </div>
+    <div id ="errors">
+            {% if messages %}
+            {%for error in messages %}
+            <ul>
+            <li class="error">{{error}}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+    </div>
+    
+    
+</body>
+</html>

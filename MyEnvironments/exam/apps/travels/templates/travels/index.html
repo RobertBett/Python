@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    table, th, td{
+        border:1px solid black;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Wassup!, {{user.name}}</h1>
+        <button><a href="/users/logout">Log out</a></button>
+        <button><a href="/travels/add">Add a Trip</a></button>
+    </div>
+    <div class="mytrips">
+        <fieldset>
+        <label for="">Your Trip Schedules</label>
+        <table style ="width:70%">
+            <tr>
+            <th> Destination</th>
+            <th> Plan</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            </tr>
+            {%for post in travels %}
+           
+            <tr>
+            <td valign="left">{{post.destination}}</td> 
+            <td valign="middle">{{post.description}}</td> 
+            <td valign="left">{{post.on}}</td>
+            <td valign="left">{{post.to}}</td>
+           
+            {% endfor %}
+            </tr>
+        </table>
+        </fieldset>
+    </div>
+    <div class="others-trips">
+        <fieldset>
+        <legend>Other Users Travel Plans</legend>
+        <table style="width:70%">
+            <tr>
+            <th> Name</th>
+            <th>Destination</th>
+            <th>Description</th>
+            <th>Travel Start Date</th>
+            <th>Travel End Date</th>
+            <th> Do you Want to Join</th>
+            </tr>
+            {%for post in travels %}
+            {% for traveler in exclude %}
+            {% for trip in traveler.trips.all %}
+            <tr>
+            <td>{{traveler.name}}</td>
+            <td>{{trip.description}}</td> 
+            <td>{{post.destination}}</td> 
+            <td>{{post.on}}</td>
+            <td>{{post.to}}</td>
+            <td><a href="">Join</a></td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+        </table>
+        </fieldset>
+    </div>
+</body>
+</html>

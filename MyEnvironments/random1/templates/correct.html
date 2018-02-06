@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Correct</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='random_styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="exp.css">
+</head>
+<body>
+	<div id="wrapper">
+	<div class="box">
+		<!-- <h1>HOLY S#$%!!</h1> -->
+		<h5>YOU'RE</h5>
+		<h5>CORRECT!!</h5>
+		<form action="/user" method="post">
+		<h6> {{session['randnum']}} </h6> 
+<!-- 		<input class="space" type='number' name='usernum'>
+		<button class="button"> Guess! </button> -->
+
+		</form>
+		<a href="http://localhost:5000"><button class="link">Back</button></a>
+	</div>
+	</div>
+
+
+</body>
+</html>

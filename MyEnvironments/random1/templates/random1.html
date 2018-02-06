@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Counter</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='random_styles.css') }}">
+<!-- 	<link rel="stylesheet" type="text/css" href="exp.css"> -->
+</head>
+<body>
+	<div id="wrapper">
+		<div class="box">
+			<h1>Counter</h1> 
+			<form action="/user" method="post">
+			<h2>  Wanna play a Game</h2>
+			<h3> I'm thinking of a number between 1-1000. Take a guess! </h3>
+			<!-- <p> {{session['randnum']}} </p>  -->
+			<input class= "space" type='number' name='usernum' >
+			<button class="button"> Guess! </button>
+			
+			</form>
+			
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+.error{
+    background-color:rgb(231, 55, 55);
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    padding:10px 5px;
+}
+ul{
+    padding:0px;
+}
+#errors{
+    /* margin-top:90px; */
+    /* display: inline; */
+    display:inline-block;
+}
+#login_form{
+    display:inline-block;
+    margin-bottom:50px;
+    margin-left:50px;
+    
+    
+
+}
+.container{
+    margin-left:100px;
+    width:800px;
+    height:500px;
+    display:inline-block;
+    background-color:rgb(188, 225, 255);
+}
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #3CBC8D;
+    color: white;
+    display: inline-flex;
+}
+#reg-form{
+    margin-left:50px;
+    display: inline-block;
+}

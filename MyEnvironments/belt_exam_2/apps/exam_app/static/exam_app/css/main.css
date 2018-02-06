@@ -1,0 +1,94 @@
+.title {
+font-family: cursive;
+text-align: center;
+}
+table {
+    font-family: cursive, arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin: 0 auto;
+}
+th {
+    color:  #dddddd;
+    background-color: #9370DB;
+}
+td, th {
+    border: 2px solid #9370DB;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #E6E6FA;
+}
+form {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form > input {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+form > select {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+form > option {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.create_button {
+    background-color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    justify-content:center;
+}
+.update_button {
+    background-color: silver;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    justify-content:center;
+}
+.delete_button {
+    background-color: #FF0000;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    justify-content:center;
+}
+.show_button {
+    background-color: orange;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    justify-content:center;
+}
+.login_button {
+    background-color: blue;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    justify-content:center;
+}
+.logout_button {
+    background-color: green;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+    justify-content:center;
+}
+.error {
+  background: rgba(163, 30, 39, 0.8);
+  color: white;
+}
+
+td {
+  margin: 0 auto;
+}
